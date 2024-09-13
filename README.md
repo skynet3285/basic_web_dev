@@ -1,1 +1,3 @@
-# basic_web_dev
+# README.md
+
+기초웹개발론
