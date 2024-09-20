@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Message</title>
+  </head>
+  <body>
+    <div id="msg">Hi</div>
+    <script>
+      function getMessage1(name) {
+        return `Hello, ${name} ...`;
+      }
+
+      function getMessage2(name) {
+        return `Welcome!, ${name} ...`;
+      }
+
+      function getMessage3(name) {
+        return `You are ${name} ...`;
+      }
+
+      function updateMessage() {
+        order = ++order % 3; // 순서 변경
+
+        let message;
+        if (order === 0) {
+          message = getMessage1("Ornella");
+        } else if (order === 1) {
+          message = getMessage2("Ornella");
+        } else {
+          message = getMessage3("Ornella");
+        }
+
+        document.getElementById("msg").innerHTML = message;
+      }
+
+      var order = 0;
+
+      setInterval(updateMessage, 3000);
+    </script>
+  </body>
+</html>
