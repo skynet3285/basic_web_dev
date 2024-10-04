@@ -5,42 +5,44 @@ h1 {
 
 body {
   font-family: helvetica, arial, sans-serif;
+  height: 100vh;
 }
 
 #terrarium-container {
   position: absolute;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
-  height: 100%;
-  z-index: 2;
+  height: 85%;
+  bottom: 0;
 }
 
 .container {
-  position: relative;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: auto;
-  height: 90%;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(103, 149, 193);
+  width: 12%;
+  height: 100%;
 }
 
 .plant-holder {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 65px;
-  width: 65px;
+  background-color: bisque;
+  border-radius: 9999px;
+  width: 80%;
+  height: auto;
 }
 
 .plant {
-  position: absolute;
-  max-width: 150%;
-  max-height: 150%;
-  z-index: 10;
-  width: 50px;
-  height: "auto";
+  max-width: 150px;
+  max-height: 150px;
+  width: 100%;
+  height: auto;
 }
 
 .jar-walls {
@@ -51,8 +53,8 @@ body {
   position: absolute;
   bottom: 0.5%;
   left: 20%;
-  opacity: 1;
-  z-index: -1;
+  opacity: 0.5;
+  z-index: 1;
 }
 
 .jar-top {
@@ -62,7 +64,7 @@ body {
   position: absolute;
   bottom: 80.5%;
   left: 25%;
-  opacity: 0.8;
+  opacity: 0.7;
   z-index: 1;
 }
 
@@ -73,31 +75,7 @@ body {
   position: absolute;
   bottom: 0%;
   left: 25%;
-  opacity: 0.8;
-}
-
-.jar-glossy-short {
-  width: 10px;
-  height: 30px;
-  border-radius: 20px;
-  border-width: 0px;
-  background-color: aqua;
-  position: absolute;
-  bottom: 250px;
-  left: 15px;
-  z-index: 10;
-}
-
-.jar-glossy-long {
-  width: 10px;
-  height: 80px;
-  border-radius: 20px;
-  border-width: 0px;
-  background-color: aqua;
-  position: absolute;
-  bottom: 150px;
-  left: 15px;
-  z-index: 10;
+  opacity: 0.7;
 }
 
 .dirt {
@@ -108,6 +86,30 @@ body {
   border-radius: 0 0 1rem 1rem;
   bottom: 1%;
   left: 20%;
-  opacity: 0.8;
+  opacity: 0.7;
   z-index: -1;
+}
+
+.jar-glossy-short {
+  width: 10px;
+  height: 3%;
+  border-radius: 20px;
+  border-width: 0px;
+  background-color: #57ff65cf;
+  position: absolute;
+  bottom: 20%;
+  left: 15px;
+  z-index: 10;
+}
+
+.jar-glossy-long {
+  width: 10px;
+  height: 8%;
+  border-radius: 20px;
+  border-width: 0px;
+  background-color: #57ff65cf;
+  position: absolute;
+  bottom: 10%;
+  left: 15px;
+  z-index: 10;
 }
