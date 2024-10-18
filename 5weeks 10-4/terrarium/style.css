@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 85%;
+  height: 90%;
   bottom: 0;
 }
 
@@ -34,7 +34,7 @@ body {
   align-items: center;
   background-color: bisque;
   border-radius: 9999px;
-  width: 80%;
+  width: 90px;
   height: auto;
 }
 
