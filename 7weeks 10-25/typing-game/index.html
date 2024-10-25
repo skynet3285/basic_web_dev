@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Typing game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-banner">
+      <h1 class="title">Typing game!</h1>
+      <p class="sub-title">
+        Practice your typing skills with a quote from Sherlock Holmes. Click
+        **start** to begin!
+      </p>
+    </div>
+    <div class="game-banner">
+      <p id="quote"></p>
+      <p id="message"></p>
+    </div>
+    <div class="game-bar">
+      <input
+        type="text"
+        aria-label="current word"
+        id="typed-value"
+        class="no-error"
+        disabled
+      />
+      <button type="button" id="start" class="enable">Start</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
