@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "carbon-trigger-extension",
+  "version": "1.0",
+  "description": "A description of your extension",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": []
+}
