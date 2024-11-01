@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Typing game</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article class="game-modal" id="result-modal">
+      <section class="modal-content">
+        <div class="modal-header">
+          <h1>CONGRATULATIONS!</h1>
+        </div>
+        <div class="modal-body">
+          <p id="message"></p>
+          <button type="button" class="close-button" id="close-button">
+            Close
+          </button>
+        </div>
+      </section>
+    </article>
+
+    <header class="main-banner">
+      <article class="banner-content">
+        <h1 class="title">Typing Game</h1>
+        <div class="mac-os-styled-button">
+          <div class="mac-os-styled-button-close"></div>
+          <div class="mac-os-styled-button-minimize"></div>
+          <div class="mac-os-styled-button-zoom"></div>
+        </div>
+      </article>
+    </header>
+    <main class="game">
+      <section class="quote">
+        <article class="quote-content">
+          <img id="quote-img" src="sherlock holmes.png" alt="Sherlock Holmes" />
+          <p id="game-message">
+            Practice your typing skills with a quote from Sherlock Holmes. Click
+            <strong>start</strong> to begin!
+          </p>
+          <p id="quote"></p>
+        </article>
+      </section>
+      <section class="typing-bar">
+        <article class="typing-bar-input">
+          <input
+            type="text"
+            aria-label="user input word"
+            placeholder="Type message"
+            id="typed-value"
+            class="input-no-error"
+            disabled
+          />
+          <button type="button" class="button-enable" id="start-button">
+            Start
+          </button>
+        </article>
+      </section>
+    </main>
+
+    <aside class="game-rank">
+      <section class="rank-content">
+        <div class="rank-content-header">
+          <h2 id="ranking">Ranking</h2>
+        </div>
+        <div class="rank-content-body">
+          <article class="ranking" id="rank"></article>
+        </div>
+      </section>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
