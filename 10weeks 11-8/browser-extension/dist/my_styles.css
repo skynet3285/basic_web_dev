@@ -1,0 +1,140 @@
+body {
+  min-width: 21rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: black;
+    color: white;
+  }
+}
+
+.plant-img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+img {
+  max-width: 21rem;
+  width: 100%;
+  height: auto;
+}
+
+.info-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.main-box {
+  text-align: center;
+}
+
+.main-box h1 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.form-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+.region-input-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 20rem;
+}
+
+.region-input-box label {
+  display: inline-flex;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.7rem;
+}
+
+.region-input-box input {
+  width: 12rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  background-color: #eeeeee;
+  border: none;
+  border-radius: 5px;
+}
+
+.api-input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 20rem;
+}
+
+.api-input-box label {
+  display: inline-flex;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.6rem;
+}
+
+.api-input-box input {
+  width: 12rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  background-color: #eeeeee;
+  border: none;
+  border-radius: 5px;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.search-btn {
+  border-radius: 5px;
+  height: 2rem;
+  width: 4rem;
+  color: white;
+  background-color: #0074d9;
+  margin-top: 0.6rem;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+}
+
+.result-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 18rem;
+}
+
+.clear-btn {
+  border-radius: 5px;
+  height: 2rem;
+  width: 8rem;
+  color: white;
+  background-color: #0074d9;
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+}
