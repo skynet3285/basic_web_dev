@@ -11,9 +11,6 @@ const apiKey = document.querySelector(".api-key");
 const errors = document.querySelector(".errors");
 const loading = document.querySelector(".loading");
 const results = document.querySelector(".result-container");
-const usage = document.querySelector(".carbon-usage");
-const fossilfuel = document.querySelector(".fossil-fuel");
-const myregion = document.querySelector(".my-region");
 const clearBtn = document.querySelector(".clear-btn");
 
 function handleSubmit(e) {
@@ -43,59 +40,91 @@ async function calculateColor(value) {
   });
 }
 
-async function displayCarbonUsage(apiKey, regionName) {
-  try {
-    await axios
-      .get("https://api.co2signal.com/v1/latest", {
-        params: {
-          countryCode: regionName,
-        },
-        headers: {
-          "auth-token": apiKey,
-        },
-      })
-      .then((response) => {
-        let CO2 = Math.floor(response.data.data.carbonIntensity);
-        calculateColor(CO2);
+function createCarbonElement(data) {
+  const content = `
+  <p><strong>Region: </strong><span class="my-region">${data.region}</span></p>
+  <p><strong>Carbon Usage: </strong><span class="carbon-usage">${data.carbonUsage}</span></p>
+  <p><strong>Fossil Fuel Percentage: </strong><span class="fossil-fuel">${data.fossilFuel}</span></p>
+`;
+  return content;
+}
 
-        loading.style.display = "none";
-        form.style.display = "none";
-        myregion.textContent = regionName;
-        usage.textContent =
-          Math.round(response.data.data.carbonIntensity) +
-          " grams (grams CO2 emitted per kilowatt hour)";
-        fossilfuel.textContent =
-          response.data.data.fossilFuelPercentage.toFixed(2) + "%";
+async function displayCarbonUsage(apiKey, regionNames) {
+  loading.style.display = "none";
+  form.style.display = "none";
+  results.style.display = "block";
+  console.log(regionNames);
 
-        results.style.display = "block";
-      });
-  } catch (error) {
-    console.log(error);
-    loading.style.display = "none";
-    results.style.display = "none";
-    errors.textContent =
-      "Sorry, we have no data for the region you have requested.";
+  for (let i = 0; i < regionNames.length; ++i) {
+    try {
+      console.log(regionNames[i]);
+
+      await axios
+        .get("https://api.co2signal.com/v1/latest", {
+          params: {
+            countryCode: regionNames[i],
+          },
+          headers: {
+            "auth-token": apiKey,
+          },
+        })
+        .then((response) => {
+          let CO2 = Math.floor(response.data.data.carbonIntensity);
+          calculateColor(CO2);
+
+          // myregion.textContent = regionNames;
+          // usage.textContent =
+          //   Math.round(response.data.data.carbonIntensity) +
+          //   " grams (grams CO2 emitted per kilowatt hour)";
+          // fossilfuel.textContent =
+          //   response.data.data.fossilFuelPercentage.toFixed(2) + "%";
+
+          const resultDiv = document.createElement("div");
+          const data = {
+            region: regionNames[i],
+            carbonUsage: Math.round(response.data.data.carbonIntensity),
+            fossilFuel:
+              response.data.data.fossilFuelPercentage.toFixed(2) + "%",
+          };
+          console.log(`loop : ${i}`, data);
+
+          resultDiv.innerHTML = createCarbonElement(data);
+          console.log(resultDiv);
+          results.appendChild(resultDiv);
+        });
+    } catch (error) {
+      console.log(error);
+      loading.style.display = "none";
+      results.style.display = "none";
+      errors.textContent =
+        "Sorry, we have no data for the region you have requested.";
+    }
   }
 }
 
 function setUpUser(apiKey, regionNames) {
   localStorage.setItem("apiKey", apiKey);
-  localStorage.setItem("regionName", JSON.stringify(regionNames));
+  localStorage.setItem("regionNames", JSON.stringify(regionNames));
   loading.style.display = "block";
   errors.textContent = "";
   clearBtn.style.display = "block";
 
-  displayCarbonUsage(apiKey, regionNames);
+  displayCarbonUsage(apiKey, [
+    regionNames.region1,
+    regionNames.region2,
+    regionNames.region3,
+  ]);
 }
 
 function getRegionNames() {
   const regionNames = localStorage.getItem("regionNames");
-  return regionNames ? JSON.parse(regionNames) : {};
+  return regionNames ? JSON.parse(regionNames) : null;
 }
 
 function init() {
   const storedApiKey = localStorage.getItem("apiKey");
   const storedRegion = getRegionNames();
+  console.log(storedApiKey, storedRegion);
   //set icon to be generic green
   chrome.runtime.sendMessage({
     action: "updateIcon",
@@ -122,6 +151,7 @@ function init() {
 function reset(e) {
   e.preventDefault();
   localStorage.removeItem("regionNames");
+  console.log("reset");
   init();
 }
 
