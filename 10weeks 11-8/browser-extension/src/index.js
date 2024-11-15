@@ -152,6 +152,7 @@ function reset(e) {
   e.preventDefault();
   localStorage.removeItem("regionNames");
   console.log("reset");
+  results.innerHTML = "";
   init();
 }
 
