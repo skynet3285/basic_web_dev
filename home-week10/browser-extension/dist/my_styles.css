@@ -1,0 +1,97 @@
+#root {
+  width: 28rem;
+  background-color: black;
+}
+
+#weather {
+  width: 28rem;
+  height: 100%;
+}
+
+.header {
+  font-size: 0.8rem;
+  margin: 0 1rem 0.5rem 1rem;
+  letter-spacing: -0.025em;
+  color: white;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+#hacker-news-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 13rem;
+}
+
+.story-content {
+  background-color: #2a2a2a;
+  display: flex;
+  margin: 0 1rem 0 1rem;
+  border-radius: 0.5rem;
+  align-items: center;
+  height: 2.3rem;
+  color: white;
+}
+
+.story-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  font-size: 0.75rem;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 0.5rem;
+}
+
+.read-more {
+  font-size: 0.7rem;
+  width: 8%;
+  height: 80%;
+  font-weight: bold;
+  padding: 0 0.5rem;
+  margin: 2px;
+  border-radius: 5px;
+  text-align: center;
+  justify-items: center;
+  background-color: #0081ff;
+  color: #e2e4f1;
+}
+
+.index-container {
+  display: flex;
+  width: 7rem;
+  justify-content: space-between;
+}
+
+#prev {
+  background-color: #2a2a2a;
+  border-radius: 9rem;
+  width: 2rem;
+  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+  color: white;
+}
+
+#page {
+  background-color: #2a2a2a;
+  border-radius: 9rem;
+  width: 1rem;
+  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+  text-align: center;
+  color: white;
+}
+
+#next {
+  background-color: #2a2a2a;
+  border-radius: 9rem;
+  width: 2rem;
+  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+  color: white;
+}
